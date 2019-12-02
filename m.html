@@ -1,0 +1,170 @@
+<html>
+<head>
+<style>
+#four
+{
+width:300px;
+height:200px;
+border:1px white solid;
+}
+.h
+{
+color:red;
+font-family:Blackadder ITC;
+font-style:italic;
+font-size:100px;
+}
+</style>
+</head>
+<body>
+<h1 class="h">Learn The English Letters</h1>
+Number Of Letters:
+<input type=text id="one">
+<button id="two" onclick="dis()" >Generate </button>
+
+<div id="three"></div>
+<div id="four"></div>
+<img src="" id="ic">
+<script>
+alert("Welcome, Let`s Go To Learn ");
+  function dis(){
+  localStorage.setItem("click" , JSON.stringify("{ type : 'click' , target : 'click button ' , time_date : new Date()}"));
+   var y=document.getElementById("one").value;
+    abc(y);
+  }
+ 
+function abc(y) {
+
+  var r=document.getElementById("three");
+  r.innerHTML="";
+  var w=document.getElementById("four");
+  w.innerHTML="";
+   var arr = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+   for ( var i = 0; i < y; i++ ) 
+   {
+      
+	   var btt=document.createElement("button");
+	   var text=document.createTextNode(arr[Math.floor(Math.random()*(25-0+1)+0)]);
+	   btt.appendChild(text);
+	   r.appendChild(btt);
+	  // btt.addEventListener("click",storefunc);
+	 // var bt=document.createElement("img");
+	 // w.appendChild(bt);
+	  
+	   btt.addEventListener("click",function(e)
+	   {
+        localStorage.setItem("click img" , JSON.stringify("{ type : 'click' , target : 'click button img  ' , time_date : new Date()}"));
+	           var names=e.target.textContent;
+			   var c=document.images[0];
+			   //var x=
+               c.src= names  + ".jpg";
+			  // bt.setAttribute("src",arr[i]);
+			   
+	   });
+   }
+   var j=document.getElementById('two');
+	   for(var i=0;i<j.length;i++){
+	     j[i].addEventListener('click',function(e)
+		 {
+		         abc(e.target.textContent);
+                         arrr.push(new events(e.type,e.target,e.timeStamp))
+						 var values=[e.type,e.target,e.timeStamp];
+						 localStorage.setItem(e.target.textContent,JSON.stringify(values));
+						 var n = JSON.parse(localStorage.getItem(e.target.textContent));
+                         console.log(n);
+						 }); 
+}
+
+
+  
+  //////////////////////storage///////////////////////////
+  
+window.addEventListener('load',function(){
+localStorage.setItem("load" , JSON.stringify("{ type : 'load' , target : 'load  ' , time_date : new Date()}"));
+console.log(JSON.parse(localStorage.getItem("load")));
+setInterval(function(){
+        localStorage.clear();
+    },5000);
+
+})
+
+
+window.addEventListener('unload',function (e)
+{
+localStorage.setItem("unload" , JSON.stringify("{ type : 'unload' , target : 'unload ' , time_date : new Date()}"));
+console.log(JSON.parse(localStorage.getItem("unload")));
+});
+
+
+window.addEventListener('load',function(e){
+localStorage.setItem("load" , "target of load event" + e.target + "type of load event"+e.type+"time of load event"+Date());
+console.log(JSON.parse(localStorage.getItem("load")));})
+window.addEventListener('unload',function (e)
+{
+localStorage.setItem("unload" , "target of unload event" + e.target + "type of unload event"+e.type+"time of unload event"+Date());
+console.log(JSON.parse(localStorage.getItem("unload")));
+});
+
+
+
+
+window.localStorage.setItem('key' , temp);//store load event on localStorage
+console.log(window.localStorage);
+
+
+
+
+
+function temp(type,target,time){
+    this.type=type;
+	this.target=target;
+	this.time=time;
+}
+var images=["A.jpg","B.jpg","C.jpg","D.jpg","E.jpg","F.jpg","G.jpg","H.jpg","I.jpg","J.jpg",
+	         "K.jpg","L.jpg","M.jpg","N.jpg","O.jpg","P.jpg","Q.jpg","R.jpg","S.png","T.jpg",
+			 "U.jpg","V.jpg","W.jpg","X.jpg","Y.jpg","Z.jpg"];
+			 ////////////////////////
+ var arrr=[];
+	/* function storefunc(event){
+	 arrr.push(new events(event.type,event.target,event.timeStamp));
+	 var values=[event.type,event.target,event.timeStamp];
+	 localStorage.setItem(event.target.textContent, JSON.stringify(val));
+	 var n = JSON.parse(localStorage.getItem(event.target.textContent));
+     console.log(n);
+	 console.log(event.type);
+	 console.log(event.target);
+	 console.log(event.timeStamp);
+	 
+	 }*/
+ /*window.addEventListener('load', storefunc);
+ window.addEventListener('unload', storefunc);
+ var butn=document.getElementById("two");
+ butn.addEventListener('click',storefunc);
+ butn.addEventListener('click',abc);*/
+               //////////////////////////
+ //counts the number of times a user has clicked a button
+/*window.localStorage;
+localStorage.setItem("time", "");
+if (localStorage.clickcount) {
+  localStorage.clickcount = Number(localStorage.clickcount) + 1;
+} else {
+  localStorage.clickcount = 1;
+}
+document.getElementById("five").innerHTML = "You have clicked the button " +
+localStorage.clickcount + " time(s).";*/
+ /////////////////////////////////////
+ 
+/*var clear=1;
+var func=setInterval(
+function()
+{
+if(clear%5==0)
+{
+window.localStorage.clear();
+} 
+clear++;
+} , 1000);*/
+}
+</script>
+</body>
+</html>
